@@ -302,7 +302,29 @@ body {
 }
 
 /* WantToWorkPage */
-
+.talkSkills{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+.talkSkills .this{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formFilling{
+    width: 60%;
+    margin: auto;
+}
+input[type="number"]::-webkit-outer-spin-button, 
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
 /* End of "want to work" page */
 
 @media screen and (max-width: 380px){
@@ -331,6 +353,14 @@ body {
         padding: 0;
         position: relative;
         top: 0px;
+    }
+    .talkSkills{
+        width: 90%;
+        margin: 20px auto;
+    }
+    .formFilling{
+        width: 90%;
+        margin: auto;
     }
     .holderCard{
         position: relative;
@@ -421,4 +451,23 @@ body {
     .imageGallery{
         padding: 20px 0;
     }
+    #learnMore{
+        font-size: 12px;
+    }
+}
+
+
+textarea:focus, 
+textarea.form-control:focus, 
+input.form-control:focus, 
+input[type=text]:focus, 
+input[type=password]:focus, 
+input[type=email]:focus, 
+input[type=number]:focus, 
+[type=text].form-control:focus, 
+[type=password].form-control:focus, 
+[type=email].form-control:focus, 
+[type=tel].form-control:focus, 
+[contenteditable].form-control:focus {
+  box-shadow: inset 0 -1px 0 rgb(255, 7, 7);
 }
