@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricings</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500&family=Ubuntu&display=swap');
+
+        * {
+            margin: 0;
+            outline: none;
+            padding: 0;
+            font-family: 'Ubuntu', sans-serif;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            background: #f7f7f7;
+        }
+
+        .wrapper {
+            max-width: 1090px;
+            width: 100%;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .wrapper .table {
+            background: #fff;
+            width: calc(33% - 20px);
+            padding: 30px 30px;
+            position: relative;
+            height: min-content;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .table .price-section {
+            display: flex;
+            justify-content: center;
+        }
+
+        .table .price-area {
+            height: 120px;
+            width: 120px;
+            border-radius: 50%;
+            padding: 2px;
+        }
+
+        .price-area .inner-area {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            border: 3px solid #fff;
+            /* line-height: 117px; */
+            text-align: center;
+            color: #fff;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .price-area .inner-area .text {
+            font-size: 25px;
+            font-weight: 400;
+            /* position: absolute; */
+            top: -10px;
+            /* left: 17px; */
+        }
+
+        .price-area .inner-area .price {
+            font-size: 45px;
+            font-weight: 500;
+            /* margin-left: 16px; */
+        }
+
+        .table .package-name {
+            width: 100%;
+            height: 2px;
+            margin: 35px 0;
+            position: relative;
+        }
+
+        .table .package-name::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size: 25px;
+            font-weight: 500;
+            background: #fff;
+            padding: 0 15px;
+            transform: translate(-50%, -50%);
+        }
+
+        .table .features li {
+            margin-bottom: 15px;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .features li .list-name {
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        .features li .icon {
+            font-size: 15px;
+        }
+
+        .features li .icon.check {
+            color: #2db94d;
+        }
+
+        .features li .icon.cross {
+            color: #cd3241;
+        }
+
+        .table .btn {
+            width: 100%;
+            display: flex;
+            margin-top: 35px;
+            justify-content: center;
+        }
+
+        .table .btn button {
+            width: 80%;
+            height: 50px;
+            color: #fff;
+            font-size: 20px;
+            font-weight: 500;
+            border: none;
+            outline: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .table .btn button:hover {
+            border-radius: 5px;
+        }
+
+        .basic .features li::selection {
+            background: #ffd861;
+        }
+
+        .basic ::selection,
+        .basic .price-area,
+        .basic .inner-area {
+            background: #ffd861;
+        }
+
+        .basic .btn button {
+            border: 2px solid #ffd861;
+            background: #fff;
+            color: #ffd861;
+        }
+
+        .basic .btn button:hover {
+            background: #ffd861;
+            color: #fff;
+        }
+
+        .premium ::selection,
+        .premium .price-area,
+        .premium .inner-area,
+        .premium .btn button {
+            background: #a26bfa;
+        }
+
+        .premium .btn button:hover {
+            background: #833af8;
+        }
+
+        .ultimate ::selection,
+        .ultimate .price-area,
+        .ultimate .inner-area {
+            background: #43ef8b;
+        }
+
+        .ultimate .btn button {
+            border: 2px solid #43ef8b;
+            color: #43ef8b;
+            background: #fff;
+        }
+
+        .ultimate .btn button:hover {
+            background: #43ef8b;
+            color: #fff;
+        }
+
+        .basic .package-name {
+            background: #ffecb3;
+        }
+
+        .premium .package-name {
+            background: #d0b3ff;
+        }
+
+        .ultimate .package-name {
+            background: #baf8d4;
+        }
+
+        .basic .package-name::before {
+            content: "Basic";
+        }
+
+        .premium .package-name::before {
+            content: "Standard";
+            font-size: 24px;
+        }
+
+        .ultimate .package-name::before {
+            content: "Premium";
+            font-size: 24px;
+        }
+
+        @media (max-width: 1020px) {
+            .wrapper .table {
+                width: calc(50% - 20px);
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 698px) {
+            .wrapper .table {
+                width: 100%;
+            }
+        }
+
+        ::selection {
+            color: #fff;
+        }
+
+        .table .ribbon {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            overflow: hidden;
+        }
+
+        .table .ribbon::before,
+        .table .ribbon::after {
+            position: absolute;
+            content: "";
+            z-index: -1;
+            display: block;
+            border: 7px solid #4606ac;
+            border-top-color: transparent;
+            border-left-color: transparent;
+        }
+
+        .table .ribbon::before {
+            top: 0px;
+            right: 15px;
+        }
+
+        .table .ribbon::after {
+            bottom: 15px;
+            left: 0px;
+        }
+
+        .table .ribbon span {
+            position: absolute;
+            top: 30px;
+            right: 0;
+            transform: rotate(-45deg);
+            width: 200px;
+            background: #a26bfa;
+            padding: 10px 0;
+            color: #fff;
+            text-align: center;
+            font-size: 17px;
+            text-transform: uppercase;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="table basic">
+            <div class="price-section">
+                <div class="price-area">
+                    <div class="inner-area">
+                        <span class="text">$</span>
+                        <span class="price">599</span>
+                    </div>
+                </div>
+            </div>
+            <div class="package-name"></div>
+            <ul class="features">
+                <li>
+                    <span class="list-name">Fully Responsive</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Max 4 pages/screens</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Free domain and web hosting (1 year)</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Custom Assets</span>
+                    <span class="icon cross"><i class="fas fa-times"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">No premium images</span>
+                    <span class="icon cross"><i class="fas fa-times"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Multiple Templates</span>
+                    <span class="icon cross"><i class="fas fa-times"></i></span>
+                </li>
+            </ul>
+            <div class="btn"><button>Purchase</button></div>
+        </div>
+        <div class="table premium">
+            <div class="ribbon"><span>Recommend</span></div>
+            <div class="price-section">
+                <div class="price-area">
+                    <div class="inner-area">
+                        <span class="text">$</span>
+                        <span class="price">729</span>
+                    </div>
+                </div>
+            </div>
+            <div class="package-name"></div>
+            <ul class="features">
+                <li>
+                    <span class="list-name">Fully Responsive</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Max 6 pages/screens</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Free domain and web hosting (1 year)</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Custom Assets</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Source Files</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Premium images</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Multiple Templates (2)</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Free maintainance (50)</span>
+                    <span class="icon cross"><i class="fas fa-times"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Business Card Creation</span>
+                    <span class="icon cross"><i class="fas fa-times"></i></span>
+                </li>
+            </ul>
+            <div class="btn"><button>Purchase</button></div>
+        </div>
+        <div class="table ultimate">
+            <div class="price-section">
+                <div class="price-area">
+                    <div class="inner-area">
+                        <span class="text">$</span>
+                        <span class="price">855</span>
+                    </div>
+                </div>
+            </div>
+            <div class="package-name"></div>
+            <ul class="features">
+                <li>
+                    <span class="list-name">Fully Responsive</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Unlimited pages/screens</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Free domain and web hosting (4 years)</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Custom Assets</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Source Files</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Premium images</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Multiple Templates (4)</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Free maintainance (50)</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Professional Suggestions</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+                <li>
+                    <span class="list-name">Business Card Creation (5)</span>
+                    <span class="icon check"><i class="fas fa-check"></i></span>
+                </li>
+            </ul>
+            <div class="btn"><button>Purchase</button></div>
+        </div>
+    </div>
+
+</body>
+
+</html>
