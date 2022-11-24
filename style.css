@@ -328,6 +328,9 @@ input[type="number"] {
 /* End of "want to work" page */
 
 @media screen and (max-width: 380px){
+    body{
+        overflow-x: hidden;
+    }
     #learnMore{
         font-size: 15px;
     }
